@@ -1,26 +1,21 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import Narrative from './components/Narrative'
+import Record from './components/Record'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const App = ({exhibit_data, record_data}) => {
+
+    return (
+        <div className="row">
+            <div className="column">
+            {record_data.map((record_data, i) => 
+                    <Record key={i} record_data={record_data}/>
+                    )}
+            </div>
+            <div className="column">
+            <Narrative exhibit_data={exhibit_data} />
+            </div>
+        </div>
+    )
 }
 
-export default App;
+export default App 
